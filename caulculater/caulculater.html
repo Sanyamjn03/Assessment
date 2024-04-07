@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="caulculater.css" />
+  </head>
+  <body>
+    <div class="container">
+      <span>DEG</span>
+      <form>
+        <input type="text" id="input-value" disabled />
+        <br />
+        <input type="text" id="result" disabled />
+        <div class="box0">
+          <div class="box1">
+            <input
+              class="calc-btn"
+              type="button"
+              value="7"
+              onclick="btnClick('7')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="8"
+              onclick="btnClick('8')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="9"
+              onclick="btnClick('9')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="4"
+              onclick="btnClick('4')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="5"
+              onclick="btnClick('5')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="6"
+              onclick="btnClick('6')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="1"
+              onclick="btnClick('1')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="2"
+              onclick="btnClick('2')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="3"
+              onclick="btnClick('3')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="."
+              onclick="btnClick('.')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="0"
+              onclick="btnClick('0')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="="
+              onclick="calculate()"
+            />
+          </div>
+          <div class="box2">
+            <input
+              class="calc-btn"
+              type="button"
+              value="DEL"
+              onclick="deleteNum()"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="/"
+              onclick="btnClick('/')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="*"
+              onclick="btnClick('*')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="-"
+              onclick="btnClick('-')"
+            />
+            <input
+              class="calc-btn"
+              type="button"
+              value="+"
+              onclick="btnClick('+')"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="caulculater.js"></script>
+  </body>
+</html>
