@@ -1,0 +1,39 @@
+.img {
+    height: 100px;
+    width: 100px;
+}
+
+.card {   
+    border: none;
+}
+
+.header {
+    margin-left: 90px;
+}
+
+input {
+    width: 200px;
+    height: 10px;
+    border-radius: 10px;
+    margin-left: 30px;
+    border: none;
+}
+
+button {
+    width: 200px;
+    margin-left: 45px;
+}
+
+.container{
+    width: 350px;
+    margin-top: 100px;
+}
+
+
+p{
+    margin-left: 40px;
+}
+
+a{
+    text-decoration: none;
+}
