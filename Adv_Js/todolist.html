@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body{
+        background-color: rgb(0, 0, 80);
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+      input {
+        padding: 10px;
+        outline: none;
+        border-radius: 8px;
+        border: none;
+      }
+      .list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #add {
+        margin-left: 5px;
+        width: 80px;
+        background-color: khaki;
+        cursor: pointer;
+      }
+      .todo {
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+        width: 270px;
+        border-radius: 10px;
+        padding-left: 10px;
+        margin-top: 20px;
+      }
+      .todo-item {
+        padding: 10px;
+        margin: 5px;
+        margin-bottom: 10px;
+        background-color: rgb(0, 0, 80);
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="list">
+      <input type="text" placeholder="Add new todo" id="input" />
+      <input type="submit" value="Add" id="add" />
+    </div>
+    <div class="todo" id="todo"></div>
+
+    <script>
+      let addToDoButton = document.getElementById("add");
+      let todoList = document.getElementById("todo");
+      let input = document.getElementById("input");
+
+      // Load todos from cookie on page load
+      window.onload = function() {
+        loadTodosFromCookie();
+      };
+
+      addToDoButton.addEventListener("click", function(){
+        addTodo();
+      });
+
+      function addTodo() {
+        if (input.value.trim() !== "") {
+          var todoText = input.value.trim();
+
+          // Create todo item element
+          var todoItem = document.createElement("div");
+          todoItem.classList.add("todo-item");
+          todoItem.textContent = todoText;
+
+          // Append todo item to the list
+          todoList.appendChild(todoItem);
+
+          // Save todos to cookie
+          saveTodosToCookie();
+
+          // Clear input
+          input.value = "";
+        }
+      }
+
+      function saveTodosToCookie() {
+        var todos = [];
+
+        // Collect all todo items' text content
+        var todoItems = document.querySelectorAll(".todo-item");
+        todoItems.forEach(function(item) {
+          todos.push(item.textContent);
+        });
+
+        // Set the cookie with todos array
+        document.cookie = "todos=" + JSON.stringify(todos);
+      }
+
+      function loadTodosFromCookie() {
+        var cookies = document.cookie.split(';');
+        var todos = [];
+
+        cookies.forEach(function(cookie) {
+          var cookiePair = cookie.split('=');
+          var cookieName = cookiePair[0].trim();
+          var cookieValue = cookiePair[1];
+
+          if (cookieName === "todos") {
+            todos = JSON.parse(cookieValue);
+
+            // Display todos from cookie
+            todos.forEach(function(todoText) {
+              var todoItem = document.createElement("div");
+              todoItem.classList.add("todo-item");
+              todoItem.textContent = todoText;
+              todoList.appendChild(todoItem);
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
